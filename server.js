@@ -21,5 +21,5 @@ var rpc = new light_rpc({
 
 rpc.listen(port);
 
-console.log('RPC server is running ...');
+console.log('\nRPC server is running ...');
 
