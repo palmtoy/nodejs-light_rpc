@@ -5,6 +5,7 @@ var myPrint = require('./utils').myPrint;
 var port = 5556;
 
 var rpc = new light_rpc({
+  /*
 	combine: function(a, b, callback){
 		myPrint('Combine is running ...');
 		callback(a + b);
@@ -13,6 +14,7 @@ var rpc = new light_rpc({
 	minus: function(a, b, callback){
 		callback(a - b);
 	},
+	*/
 
 	multiply: function(t, cb){
 		cb(t * 2);

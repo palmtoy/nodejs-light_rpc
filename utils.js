@@ -1,8 +1,8 @@
 var utils = module.exports;
 
 // control variable of func "myPrint"
-var isPrintFlag = false;
-// var isPrintFlag = true;
+// var isPrintFlag = false;
+var isPrintFlag = true;
 
 
 // print the file name and the line number ~ begin

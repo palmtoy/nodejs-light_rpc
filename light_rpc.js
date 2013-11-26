@@ -6,7 +6,7 @@ var log = {
 	e: function(){
 		console.log(arguments);
 	}
-}
+};
 
 var descrCmd = '__DESCR';
 var resultCmd = '__RESULT';
@@ -112,7 +112,7 @@ light_rpc.prototype.connect = function(port, host, callback){
 	connection.on('end', function(){
 		log.e('RPC connection other side send end event');
 	});
-}
+};
 
 function getOnDataFn(commandsCallback, lengthObj){
 	return function(data){
@@ -157,7 +157,7 @@ function getRemoteCallFunction(cmdName, callbacks, connection){
 light_rpc.prototype.listen = function(port){
 	this.getServer();
 	this.server.listen(port);
-}
+};
 
 light_rpc.prototype.getServer = function(){
 	var self = this;
@@ -205,11 +205,11 @@ light_rpc.prototype.getServer = function(){
 
 	this.server = server;
 	return server;
-}
+};
 
 light_rpc.prototype.close = function(){
 	this.server.close();
-}
+};
 
 function getSendCommandBackFunction(connection, cmdId){
 	return function(){
@@ -301,7 +301,7 @@ function clearBuffer(buffer, length){
 light_rpc.connect = function(){
     var rpc = light_rpc();
     return rpc.connect.apply(rpc, arguments);
-}
+};
 
 function parseArgumentsToArray(){
 	var args = [];
