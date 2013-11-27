@@ -17,6 +17,7 @@ var rpc = new light_rpc({
 	*/
 
 	multiply: function(t, cb){
+    myPrint('Multiply is running ...');
 		cb(t * 2);
 	}
 });

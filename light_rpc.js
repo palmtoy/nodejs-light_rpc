@@ -133,6 +133,7 @@ function getOnDataFn(commandsCallback, lengthObj){
 		}
 
 		var commands = getComands.call(lengthObj);
+    myPrint('3 ~ commands = ', JSON.stringify(commands));
 		commands.forEach(commandsCallback);
 	};
 }
@@ -141,11 +142,13 @@ function getRemoteCallFunction(cmdName, callbacks, connection){
 	return function(){
 		var id = uuid.v1();
 
+    // the last one of arguments is cb func
 		if(typeof arguments[arguments.length-1] == 'function'){
 			callbacks[id] = arguments[arguments.length-1];
 		}
 
 		myPrint('Object.keys(callbacks) = ', Object.keys(callbacks));
+    myPrint('GetRemoteCallFunction ~ arguments = ', JSON.stringify(arguments));
 		var args = parseArgumentsToArray.call(this, arguments);
 		var newCmd = command(cmdName, {id: id, args: args});
 		myPrint('newCmd = ', newCmd);
@@ -305,6 +308,8 @@ light_rpc.connect = function(){
 
 function parseArgumentsToArray(){
 	var args = [];
+
+  myPrint('ParseArgumentsToArray ~ arguments = ', JSON.stringify(arguments));
 	
 	for(var ar in arguments[0]){
 		if(typeof arguments[0][ar] != 'function'){

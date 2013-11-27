@@ -14,13 +14,16 @@ light_rpc.connect(port, 'localhost', function(remote, conn){
 	remote.minus(199, 100, function(res){
 		console.log('minus ~  res(199-100) = ', res);
 	});
-	*/
+  */
 
-	remote.multiply(88, function(res){
-		console.log('multiply ~ res(88*2)   = ', res);
-		// close connect
-		conn.destroy();
-		conn.end();
-	});
+  if(typeof remote.multiply === 'function') {
+    console.log('remote.multiply is running ...');
+    remote.multiply(88, function(res){
+      console.log('multiply ~ res(88*2)   = ', res);
+      // close connect
+      conn.destroy();
+      conn.end();
+    });
+  }
 });
 
