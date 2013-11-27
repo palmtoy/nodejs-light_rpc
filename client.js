@@ -6,6 +6,10 @@ var port = 5556;
 light_rpc.connect(port, 'localhost', function(remote, conn){
 	myPrint('Object.keys(remote) = ', Object.keys(remote));
 
+  var cmdStr = JSON.stringify({command: 'wulala'});
+  myPrint('cmdStr = ', cmdStr);
+  conn.write(Buffer.byteLength(cmdStr) + '\n' + cmdStr);
+
   /*
 	remote.combine(99, 100, function(res){
 		console.log('combine ~  res(99+100) = ', res);
@@ -14,7 +18,6 @@ light_rpc.connect(port, 'localhost', function(remote, conn){
 	remote.minus(199, 100, function(res){
 		console.log('minus ~  res(199-100) = ', res);
 	});
-  */
 
   if(typeof remote.multiply === 'function') {
     console.log('remote.multiply is running ...');
@@ -25,5 +28,6 @@ light_rpc.connect(port, 'localhost', function(remote, conn){
       conn.end();
     });
   }
+  */
 });
 
