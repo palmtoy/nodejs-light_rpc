@@ -92,6 +92,9 @@ light_rpc.prototype.connect = function(port, host, callback){
 
 			callback(remoteObj, connection);
 		}
+    else if(cmd.command == 'error'){
+      console.warn('\n!!! error cmd data: ', cmd.data, '\n');
+		}
 	}
 
 	var lengthObj = {
